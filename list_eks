@@ -1,0 +1,3 @@
+list_eks() {
+	aws eks list-clusters | jq '.clusters|.[]' -r 
+}

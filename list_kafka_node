@@ -1,0 +1,4 @@
+list_kafka_node() {
+	readonly env=${1:?"Env. must be specified."}
+        aws kafka list-nodes --cluster-arn $(list_kafka_cluster | grep ${env}) --output json --no-cli-pager
+}

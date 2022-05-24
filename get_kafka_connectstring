@@ -1,0 +1,4 @@
+get_kafka_connectstring() {
+	readonly env=${1:?"Env. must be specified."}
+	aws kafka describe-cluster --cluster-arn $(list_kafka_arn ${1}) --output json | jq ".ClusterInfo.ZookeeperConnectString" -r
+}

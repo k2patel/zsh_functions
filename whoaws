@@ -1,0 +1,3 @@
+whoaws() {
+aws sts get-caller-identity | jq 'to_entries|map("\(.key) ==  \(.value)")|.[]' -r
+}

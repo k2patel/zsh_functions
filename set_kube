@@ -1,0 +1,4 @@
+set_kube() {
+	readonly name=${1:?" Name must be specified."}
+	aws eks update-kubeconfig --name $1
+}

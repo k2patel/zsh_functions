@@ -1,0 +1,4 @@
+list_kafka_arn() {
+	readonly env=${1:?"Env. must be specified."}
+	aws kafka list-clusters --output json | jq '.ClusterInfoList|.[].ClusterArn' -r | grep $1
+}

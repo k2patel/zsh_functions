@@ -1,0 +1,4 @@
+list_cnames() {
+	readonly env=${1:?"ID must be specified."}
+	aws route53 list-resource-record-sets --hosted-zone-id "${1}" | jq '.ResourceRecordSets | .[] | select(.Type=="CNAME") | "\(.Name) \(.ResourceRecords | .[].Value)"' -r
+}
