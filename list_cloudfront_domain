@@ -1,0 +1,3 @@
+list_cloudfront_domain() {
+	aws cloudfront list-distributions --query "DistributionList.Items[*].Aliases.Items[*]" --output text --no-paginate
+}

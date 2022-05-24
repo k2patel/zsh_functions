@@ -1,0 +1,4 @@
+list_domains() {
+	#aws route53 list-hosted-zones | jq ".HostedZones|.[].Name" -r
+	aws route53 list-hosted-zones | jq '.HostedZones|.[] | "\(.Name) \(.Id)"' -r
+}

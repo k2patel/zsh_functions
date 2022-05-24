@@ -1,0 +1,6 @@
+list_eks_endpoint() {
+	for i in $(list_eks); do
+		echo $i
+		aws eks describe-cluster --name $i | jq '.cluster|.endpoint' -r
+	done
+}

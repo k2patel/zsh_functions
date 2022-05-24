@@ -1,0 +1,7 @@
+list_eks_lb() {
+	for i in $(list_eks); do
+		# echo $i
+		set_kube $i >/dev/null 2>&1
+		kubectl get svc -A -o json | jq '.items|.[].status|select(.loadBalancer.ingress)|.loadBalancer.ingress[].hostname' -r
+	done
+}

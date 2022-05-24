@@ -1,0 +1,3 @@
+netshoot() {
+	kubectl run netshoot-kpb --rm -i --tty --image alpine:latest -- /bin/sh
+}

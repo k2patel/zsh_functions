@@ -1,0 +1,5 @@
+list_kafka_node_ip() {
+        readonly env=${1:?"Env. must be specified."}
+        readonly ip=${2:?"IP must be specified."}
+	list_kafka_node ${env} | grep -B 5 -A 10 ${ip}
+}

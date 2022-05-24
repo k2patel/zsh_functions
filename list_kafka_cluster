@@ -1,0 +1,5 @@
+list_kafka_cluster() {
+	#aws kafka list-clusters | grep ClusterArn | awk '{sub(/:/," ")}1'
+	#aws kafka list-clusters --output json | jq '.ClusterInfoList|.[].ClusterArn' -r
+	aws kafka list-clusters --query "ClusterInfoList[*].[ClusterName,ClusterArn]" --output text --no-cli-pager
+}
